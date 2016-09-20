@@ -1,4 +1,27 @@
 $(document).ready(function() {
+
+  var isOnDanceFloor = function(x, y) {
+    var bodyWidth = $('body').width();
+    var bodyHeight = $('body').height();
+    if(x > bodyWidth * 0.25 && x < bodyWidth * 0.75) {
+      if (y > bodyHeight * 0.25 && y < bodyHeight * 0.75) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  var normalizeNumber = function(number, limit) {
+    if (number < 200) {
+      number += 200;
+    }
+    if (number > limit - 200) {
+      number -= 200;
+    }
+    return number;
+  }
+
   window.dancers = [];
   var numberOfDancers = 0;
   $('#draggable').draggable();
@@ -27,14 +50,18 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
-    var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      Math.random() * 1000
-    );
+    var height = $('body').height() * Math.random();
+    height = normalizeNumber(height, $('body').height());
+    var width = $('body').width() * Math.random();
+    width = normalizeNumber(width, $('body').width());
+    var dancer = new dancerMakerFunction(height, width, Math.random() * 1000);
 
     dancer.$node.attr('id', numberOfDancers + 'dancer');
+
+    if (isOnDanceFloor(width, height)) {
+      dancer.$node.css('background-image', 'url(\'img/butt-shake.gif\')');
+    }
+
     $('body').append(dancer.$node);
     $('#' + numberOfDancers + 'dancer').draggable();
     numberOfDancers++;
@@ -72,16 +99,11 @@ $(document).ready(function() {
       }
 
       if (stringContains($currentDancer[0].className, 'twerkingDancer')) {
-        console.log('twerking');
         $currentDancer.css('background-image', 'url(\'img/butt-shake.gif\')');
       }
       if (stringContains($currentDancer[0].className, 'bananaDancer')) {
-        console.log('banana');
         $currentDancer.css('background-image', 'url(\'img/banana-dancer.gif\')');
       }
-
-      console.log($currentDancer[0]);
-
     }
   });
 });
