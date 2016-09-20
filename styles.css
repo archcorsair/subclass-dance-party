@@ -21,7 +21,15 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
+  position:absolute;
+}
+.bananaDancer{
+  background-image: url('img/banana-dancer.gif');
+  height: 100px;
+  width: 100px;
+  background-size: 100% 100%;
+}
+.blinkyDancer{
   border:10px solid red;
   border-radius:10px;
-  position:absolute;
 }
