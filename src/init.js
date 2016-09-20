@@ -33,5 +33,10 @@ $(document).ready(function() {
     dancer.$node.attr('id', currentNumber + 'banana');
     $('body').append(dancer.$node);
     $( "#" + currentNumber + "banana" ).draggable();
+    $( "#droppable" ).droppable({
+      drop: function(event, ui) {
+        $(ui.draggable.context).css('background-image', 'url(\'img/banana-dancer.gif\')');
+      }
+    });
   });
 });
