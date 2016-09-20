@@ -27,8 +27,10 @@ body, a:link, a:visited, a:active{
 }
 
 .dancer{
-  position:absolute;
+  position:absolute !important;
   background-size: 100% 100%;
+  height: 100px;
+  width: 100px;
 
   transition: height 2s ease,
               width 2s ease;
@@ -43,22 +45,9 @@ body, a:link, a:visited, a:active{
   width: 125px;
 }
 
-.bananaDancer{
-  background-image: url('img/banana-dancer-still.png');
-  height: 100px;
-  width: 100px;
-}
-
 .blinkyDancer{
   border:10px solid red;
   border-radius:10px;
-}
-
-.twerkingDancer{
-  background-image: url('img/butt-shake-still.png');
-
-  height: 100px;
-  width: 100px;
 }
 
 .dancefloor {
