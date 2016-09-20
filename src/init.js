@@ -3,6 +3,13 @@ $(document).ready(function() {
   var nbrOfBananas = 0;
   $( "#draggable" ).draggable();
 
+  for(var i = 0; i < 56; i++) {
+    var color = Math.floor(Math.random()*16777215).toString(16);
+    var $newTile = $('<div class="danceFloorTile"></div>');
+    $newTile.css('background-color', '#' + color);
+    $('#droppable').append($newTile);
+  }
+
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
