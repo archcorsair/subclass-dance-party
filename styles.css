@@ -37,8 +37,6 @@ body, a:link, a:visited, a:active{
 .dancer:hover {
   cursor: pointer;
 
-  transition: height 2s ease,
-              width 2s ease;
   height: 125px;
   width: 125px;
 }

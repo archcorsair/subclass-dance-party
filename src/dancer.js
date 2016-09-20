@@ -20,13 +20,13 @@ Dancer.prototype.step = function() {
   }, this.timeBetweenSteps);
 };
 
-Dancer.prototype.setPosition = function(top, left) {
-  var styleSettings = {
-    top: top,
-    left: left
+  Dancer.prototype.setPosition = function(top, left) {
+    var styleSettings = {
+      top: top,
+      left: left
+    };
+    this.$node.css(styleSettings);
   };
-  this.$node.css(styleSettings);
-};
 
 //
 // Creates and returns a new dancer object that can step
