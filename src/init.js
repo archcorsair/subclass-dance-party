@@ -54,4 +54,11 @@ $(document).ready(function() {
   setInterval(function() {
     console.log(`Currently ${numberOfDancers} dancer(s) on the dancefloor.`);
   }, 10000);
+
+  $('.lineDancersButton').on('click', function(event) {
+    for (var i = 0; i < numberOfDancers; i++) {
+      var $currentDancer = $('#' + i + 'dancer');
+      
+    }
+  });
 });

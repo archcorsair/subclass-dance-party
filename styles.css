@@ -29,6 +29,18 @@ body, a:link, a:visited, a:active{
 .dancer{
   position:absolute;
   background-size: 100% 100%;
+
+  transition: height 2s ease,
+              width 2s ease;
+}
+
+.dancer:hover {
+  cursor: pointer;
+
+  transition: height 2s ease,
+              width 2s ease;
+  height: 125px;
+  width: 125px;
 }
 
 .bananaDancer{
@@ -44,6 +56,7 @@ body, a:link, a:visited, a:active{
 
 .twerkingDancer{
   background-image: url('img/butt-shake-still.png');
+
   height: 100px;
   width: 100px;
 }
