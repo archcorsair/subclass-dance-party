@@ -4,7 +4,7 @@ $(document).ready(function() {
   $('#draggable').draggable();
 
   var randomTime = function() {
-    return Math.floor(Math.random() * 10);
+    return Math.floor(Math.random() * 10) + 2;
   };
   // Generate Dance Floor Tiles. 56 = number of tiles
   for (var i = 0; i < 56; i++) {
