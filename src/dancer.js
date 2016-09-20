@@ -5,8 +5,13 @@ var Dancer = function(top, left, timeBetweenSteps) {
 
   this.$node = $('<span class="dancer"></span>');
 
+
   this.step();
   this.setPosition(top, left);
+};
+
+Dancer.prototype.addClass = function(cls) {
+  this.$node.addClass(cls);
 };
 
 Dancer.prototype.step = function() {
