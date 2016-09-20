@@ -1,12 +1,17 @@
 $(document).ready(function() {
   window.dancers = [];
-  var nbrOfBananas = 0;
-  $( "#draggable" ).draggable();
+  var numberOfDancers = 0;
+  $('#draggable').draggable();
 
-  for(var i = 0; i < 56; i++) {
-    var color = Math.floor(Math.random()*16777215).toString(16);
+  var randomTime = function() {
+    return Math.floor(Math.random() * 10);
+  };
+  // Generate Dance Floor Tiles. 56 = number of tiles
+  for (var i = 0; i < 56; i++) {
+    var color = Math.floor(Math.random() * 16777215).toString(16);
     var $newTile = $('<div class="danceFloorTile"></div>');
-    $newTile.css('background-color', '#' + color);
+    //$newTile.css('background-color', '#' + color);
+    $newTile.css('animation', `danceFloorTileAnimation ${randomTime() + 1}s infinite`);
     $('#droppable').append($newTile);
   }
 
@@ -32,18 +37,22 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    var currentNumber = nbrOfBananas++;
-    dancer.$node.attr('id', currentNumber + 'banana');
+    var currentDancer = numberOfDancers++;
+    dancer.$node.attr('id', currentDancer + 'dancer');
     $('body').append(dancer.$node);
-    $( "#" + currentNumber + "banana" ).draggable();
-    $( "#droppable" ).droppable({
+    $('#' + currentDancer + 'dancer').draggable();
+    $('#droppable').droppable({
       drop: function(event, ui) {
         $(ui.draggable.context).css('background-image', 'url(\'img/banana-dancer.gif\')');
       }
     });
   });
+
+  setInterval(function() {
+    console.log(`Currently ${numberOfDancers} dancer(s) on the dancefloor.`);
+  }, 10000);
 });
