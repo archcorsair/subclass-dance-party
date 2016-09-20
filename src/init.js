@@ -1,5 +1,7 @@
 $(document).ready(function() {
   window.dancers = [];
+  var nbrOfBananas = 0;
+  $( "#draggable" ).draggable();
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -27,6 +29,9 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    var currentNumber = nbrOfBananas++;
+    dancer.$node.attr('id', currentNumber + 'banana');
     $('body').append(dancer.$node);
+    $( "#" + currentNumber + "banana" ).draggable();
   });
 });
