@@ -10,10 +10,11 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.setPosition(top, left);
 };
 
+
 Dancer.prototype.addClass = function(cls) {
   this.$node.addClass(cls);
 };
-
+// For blinky only?
 Dancer.prototype.step = function() {
   var _this = this;
   setTimeout(function() {
@@ -57,5 +58,9 @@ Dancer.prototype.setSizeNormal = function() {
 };
 
 Dancer.prototype.startDance = function() {
-  throw new Error('StartDance needs to be overwritten in subclass you dummy!');
+  throw new Error('StartDance needs to be overrided in subclass you dummy!');
+};
+
+Dancer.prototype.stopDance = function() {
+  throw new Error('StopDance needs to be overrided in subclass you dummy!');
 };

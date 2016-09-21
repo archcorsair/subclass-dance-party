@@ -85,7 +85,7 @@ $(document).ready(function() {
     }
   });
 
-  $('.doAWeaveButton').on('click', function(event) {
+  $('.doAWaveButton').on('click', function(event) {
     var counter = 1;
     window.dancers.forEach(function(dancer) {
       setTimeout(function() {

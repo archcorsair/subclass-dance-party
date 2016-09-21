@@ -6,8 +6,12 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
 BlinkyDancer.prototype.constructor = BlinkyDancer;
 
-BlinkyDancer.prototype.step = function() {
-  Dancer.prototype.step.call(this);
+BlinkyDancer.prototype.startDance = function() {
+  // Doesn't work with jQuery??
+  // setInterval(this.$node.toggle.bind(this), 750);
 
-  this.$node.toggle();
+  // Workaround
+  var _this = this;
+  setInterval(function() { _this.$node.toggle() }, 750);
+
 };

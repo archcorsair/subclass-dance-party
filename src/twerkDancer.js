@@ -3,20 +3,19 @@ var TwerkDancer = function(top, left, timeBetweenSteps) {
   this.addClass('twerkingDancer');
 
   if (this.isOnDanceFloor(left, top)) {
-    this.$node.css('background-image', 'url(\'img/butt-shake.gif\')');
+    this.startDance();
   } else {
-    this.$node.css('background-image', 'url(\'img/butt-shake-still.png\')');
+    this.stopDance();
   }
 };
 
 TwerkDancer.prototype = Object.create(Dancer.prototype);
 TwerkDancer.prototype.constructor = TwerkDancer;
 
-TwerkDancer.prototype.step = function() {
-  Dancer.prototype.step.call(this);
-
-};
-
 TwerkDancer.prototype.startDance = function() {
   this.$node.css('background-image', 'url(\'img/butt-shake.gif\')');
+};
+
+TwerkDancer.prototype.stopDance = function() {
+  this.$node.css('background-image', 'url(\'img/butt-shake-still.png\')');
 };
