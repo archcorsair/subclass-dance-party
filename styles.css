@@ -12,6 +12,10 @@ body, a:link, a:visited, a:active{
   color: lightblue;
 }
 
+a {
+  margin-left: 20px;
+}
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
@@ -29,11 +33,12 @@ body, a:link, a:visited, a:active{
 .dancer{
   position:absolute !important;
   background-size: 100% 100%;
-  height: 100px;
-  width: 100px;
 
   transition: height 2s ease,
               width 2s ease;
+  height: 100px;
+  width: 100px;
+
   transition: top 2s ease,
               left 2s ease;
 }

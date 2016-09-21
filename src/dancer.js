@@ -32,12 +32,28 @@ Dancer.prototype.setPosition = function(top, left) {
 Dancer.prototype.isOnDanceFloor = function(x, y) {
   var bodyWidth = $('body').width();
   var bodyHeight = $('body').height();
-  if(x > (bodyWidth * 0.25) - 50 && x < bodyWidth * 0.75) {
-    if (y > (bodyHeight * 0.25) - 50 && y < bodyHeight * 0.75) {
+  if(x > (bodyWidth * 0.25) - 50 && x < (bodyWidth * 0.75) + 50) {
+    if (y > (bodyHeight * 0.25) - 50 && y < (bodyHeight * 0.75) + 50) {
       return true;
     }
   }
   return false;
+};
+
+Dancer.prototype.setSizeBig = function() {
+  this.$node.css({
+    'transition': 'width 2s ease, height 1s ease',
+    'width': '125px',
+    'height': '125px'
+  });
+};
+
+Dancer.prototype.setSizeNormal = function() {
+  this.$node.css({
+    'transition': 'width 2s ease, height 1s ease',
+    'width': '100px',
+    'height': '100px'
+  });
 };
 
 Dancer.prototype.startDance = function() {

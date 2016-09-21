@@ -85,4 +85,17 @@ $(document).ready(function() {
     }
   });
 
+  $('.doAWeaveButton').on('click', function(event) {
+    var counter = 1;
+    window.dancers.forEach(function(dancer) {
+      setTimeout(function() {
+        dancer.setSizeBig();
+
+        setTimeout(function() {
+          dancer.setSizeNormal();
+        }, 1000);
+      }, 100 + (counter++ * 100));
+    });
+  });
+
 });
