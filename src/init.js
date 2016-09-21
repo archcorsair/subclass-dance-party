@@ -97,5 +97,13 @@ $(document).ready(function() {
       }, 100 + (counter++ * 100));
     });
   });
+  // Create hidden discoball in the background
+  var $discoBall = $("<img src='img/disco-ball.gif' class='discoBall'></img>");
+  $discoBall.appendTo($('body')).hide();
+
+
+  $('.discoBallButton').on('click', function(event) {
+      $('.discoBall').toggle('bounce');
+  });
 
 });
