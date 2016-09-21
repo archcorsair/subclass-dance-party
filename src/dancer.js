@@ -32,8 +32,8 @@ Dancer.prototype.setPosition = function(top, left) {
 Dancer.prototype.isOnDanceFloor = function(x, y) {
   var bodyWidth = $('body').width();
   var bodyHeight = $('body').height();
-  if(x > bodyWidth * 0.25 && x < bodyWidth * 0.75) {
-    if (y > bodyHeight * 0.25 && y < bodyHeight * 0.75) {
+  if(x > (bodyWidth * 0.25) - 50 && x < bodyWidth * 0.75) {
+    if (y > (bodyHeight * 0.25) - 50 && y < bodyHeight * 0.75) {
       return true;
     }
   }

@@ -69,18 +69,18 @@ $(document).ready(function() {
   });
 
   $('.lineDancersButton').on('click', function(event) {
-    for (var i = 0; i < window.dancers.length; i++) {
+    var numberOfDancers = window.dancers.length;
+
+    for (var i = 0; i < numberOfDancers; i++) {
       var $currentDancer = window.dancers[i];
 
-      var x = 0;
-      if (i === 0) {
-        x = 50;
-      } else if (i % 2 !== 0) {
-        x = (50 - i - 1);
-      } else if (i % 2 === 0) {
-        x = (50 + i);
-      }
-      $currentDancer.setPosition('50%', x + '%');
+      var dancefloorWith = $('body').width() / 2;
+      var paddingLeft = dancefloorWith / 2;
+      var spacePerDancer = dancefloorWith / numberOfDancers;
+      var paddingInCell = (spacePerDancer / 2) - 50
+
+      var currentPadding = paddingLeft + (spacePerDancer * i) + paddingInCell;
+      $currentDancer.setPosition('50%', currentPadding + 'px');
       $currentDancer.startDance();
     }
   });
